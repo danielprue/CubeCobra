@@ -7,6 +7,8 @@ import LinkModal from 'components/LinkModal';
 import withModal from 'components/WithModal';
 import Latex from 'react-latex';
 
+import DeckMarkup from '../components/DeckMarkup';
+
 import { Col, Row, Card, CardBody } from 'reactstrap';
 
 const AutocardLink = withAutocard('a');
@@ -175,6 +177,13 @@ const InnerMarkdown = ({ markdown }) => {
                 {percentage}%
               </span>
             );
+          }
+          if (section.startsWith('&%')) {
+            // parse the string for a deck id
+            // const deckId = section.substring(2, section.length - 2);
+            // import deck using id
+            // use deck details as props for DeckMarkup
+            // return <p>{deckId}</p>;
           }
           if (section.startsWith('\n')) {
             return <br key={/* eslint-disable-line react/no-array-index-key */ `section-${position}`} />;
